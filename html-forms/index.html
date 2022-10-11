@@ -5,30 +5,42 @@
   </head>
   <body>
     <h1>Coding Form!</h1>
-    <p>Email</p>
     <div>
       <form method="get">
-        <input type="email" name="email">
+        <label for="email">Email</label>
+        <div><input type="text" id="email" name="email"></div>
       </form>
     </div>
-    <p>Why is coding cool?</p>
-    <select>
-      <option value="select an option">Select an option</option>
-      <option value="because it's interesting">Because it's interesting</option>
-      <option value="because it's fun">Because it's fun</option>
-      <option value="because it's powerful">Because it's powerful</option>
-    </select>
-    <p>Favorite Language (choose one)</p>
     <div>
-      <input type="radio" name="language" value="html"> HTML
-      <input type="radio" name="language" value="css"> CSS
-      <input type="radio" name="language" value="javascript"> Javascript
+      <label for="selection">Why is coding cool?</label>
     </div>
-    <p>Would you like to sign up for more information?</p>
+    <div>
+      <select id="selection" name="selection">
+        <option value="select an option">Select an option</option>
+        <option value="because it's interesting">Because it's interesting</option>
+        <option value="because it's fun">Because it's fun</option>
+        <option value="because it's powerful">Because it's powerful</option>
+      </select>
+    </div>
+    <div>
+      <p>
+        <label for="radio"> Favorite Language (choose one)</label>
+      </p>
+    </div>
+    <div>
+      <label id="radio">
+        <input type="radio" name="language" value="html"> HTML
+        <input type="radio" name="language" value="css"> CSS
+        <input type="radio" name="language" value="javascript"> Javascript
+      </label>
+    </div>
+    <p>
+      <label for="checkbox">Would you like to sign up for more information?</label>
+    </p>
     <div>
       <input type="checkbox" name="y/n" value="sign me up!"> Sign me up!
     </div>
-    <p>Comments</p>
+    <label for="Comments">Comments</label>
     <div>
       <textarea name="comments" cols="35" rows="15"></textarea>
     </div>
