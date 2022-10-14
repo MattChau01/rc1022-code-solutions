@@ -8,9 +8,8 @@ body {
 }
 
 #container {
-  max-width: fit-content;
+  max-width: 900px;
   margin: 0 auto;
-  justify-content: center;
 }
 
 .row {
@@ -26,11 +25,11 @@ body {
 }
 
 .column-ten {
-  flex-basis: 15%;
+  flex-basis: 30%;
 }
 
 .column-thirty {
-  flex-basis: 30%;
+  flex-basis: 50%;
 }
 
 .column-two-third {
@@ -40,6 +39,11 @@ body {
 .column-third {
   flex-basis: calc(100%/3);
   text-align: center;
+}
+
+.column-fifty {
+  flex-basis: 50%;
+  display: flex;
 }
 
 .image {
@@ -57,7 +61,7 @@ h2 {
 }
 
 .pad {
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 p {
