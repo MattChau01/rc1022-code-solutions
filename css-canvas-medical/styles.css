@@ -59,6 +59,7 @@
 .hero {
   height: 900px;
   object-fit: cover;
+  background-image: url("images/hero.jpg");
 }
 
 .background-hero {
@@ -97,9 +98,6 @@
 }
 
 .get-started {
-  position: absolute;
-  top: 740px;
-  left: 100px;
   font-family: avenir, sans-serif;
   font-size: 25px;
   font-weight: bold;
