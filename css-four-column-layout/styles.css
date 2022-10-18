@@ -1,0 +1,52 @@
+* {
+  background-color: #f7f8fa;
+  box-sizing: border-box;
+}
+
+.container-one {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.column-full {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.column-fourth {
+  flex-basis: calc(100%/4);
+}
+
+.barlow400 {
+  font-family: Barlow, sans-serif, arial;
+  font-weight: 400;
+}
+
+.barlow700 {
+  font-family: Barlow, sans-serif, arial;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.img {
+  width: 250px;
+  height: 400px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+}
+
+h1 {
+  font-size: 23px;
+}
+
+h2 {
+  font-size: 18px;
+}
