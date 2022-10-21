@@ -1,17 +1,17 @@
-* {
-  color: blue;
-}
-
-p {
-  color: orange;
+#timbl {
+  color: red;
 }
 
 .bio {
   color: green;
 }
 
-#timbl {
-  color: red;
+p {
+  color: orange;
+}
+
+* {
+  color: blue;
 }
 
 #verou {
