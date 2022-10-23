@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .container-one {
   max-width: 1600px;
   margin: 0 auto;
@@ -67,6 +71,13 @@
   background-image: url("images/hero.jpg");
 }
 
+.product-header {
+  padding-top: 40px;
+  height: 850px;
+  object-fit: cover;
+  background-image: url("images/product/product-header.jpg");
+}
+
 .background-hero {
   background: linear-gradient(transparent, rgb(90 90 90 / 75%));
   height: 100%;
@@ -85,15 +96,39 @@
   margin-left: 50px;
 }
 
+.header-absolute {
+  position: absolute;
+  align-content: center;
+  justify-content: center;
+  margin-top: 70px;
+  margin-left: 50px;
+  padding-top: 70px;
+}
+
 .h1-absolute {
   font-family: "Tiempos Headline", sans-serif;
   color: white;
   font-size: 50px;
 }
 
+.h1-header {
+  font-family: "Tiempos Headline", sans-serif;
+  color: white;
+  font-size: 60px;
+  font-weight: 500;
+}
+
 .p-absolute {
   font-family: avenir, sans-serif;
   width: 700px;
+  color: white;
+  font-size: 25px;
+  line-height: 45px;
+}
+
+.p-header {
+  font-family: avenir, sans-serif;
+  width: 800px;
   color: white;
   font-size: 25px;
   line-height: 45px;
@@ -135,6 +170,38 @@
   color: #6e6e6e;
 }
 
+.command-header {
+  font-family: "Tiempos Headline", sans-serif;
+  font-weight: 550;
+  font-size: 45px;
+  text-align: left;
+  color: #6e6e6e;
+}
+
+.command-p {
+  font-family: avenir, sans-serif;
+  font-size: 25px;
+  line-height: 1.5;
+  color: #6e6e6e;
+  width: 650px;
+}
+
+.command-quote {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+  line-height: 1.5;
+  color: #6e6e6e;
+  width: 650px;
+}
+
+.learn-more-charting {
+  font-family: avenir, sans-serif;
+  font-size: 25px;
+  line-height: 1.5;
+  color: #184362;
+  width: 650px;
+}
+
 .p-clinicians {
   font-family: avenir, sans-serif;
   color: #6e6e6e;
@@ -164,6 +231,30 @@
 .left {
   margin-left: 150px;
   text-align: left;
+}
+
+.prod1-head-position {
+  margin-top: 75px;
+  margin-left: 150px;
+}
+
+.prod1-head-img-l {
+  width: fit-content;
+  height: fit-content;
+  margin-right: 150px;
+}
+
+.prod1-head-img-3 {
+  width: fit-content;
+  height: fit-content;
+  margin-top: 150px;
+  margin-right: 150px;
+}
+
+.prod1-head-img-r {
+  width: fit-content;
+  height: fit-content;
+  margin-left: 150px;
 }
 
 .learn-more-box {
@@ -197,7 +288,7 @@
 
 .learn-align-left {
   width: 800px;
-  padding-left: 60px;
+  padding-left: 25px;
 }
 
 .button-align-right {
@@ -231,8 +322,8 @@
 }
 
 .footer-1a {
-  padding-left: 45px;
-  margin-left: 45px;
+  padding-left: 85px;
+  margin-left: 85px;
   width: 900px;
 }
 
