@@ -30,12 +30,3 @@
   border: none;
   box-shadow: 0 -10px 5px #111;
 }
-
-.circle-one:active {
-  box-shadow: #faea84;
-  border-width: 3rem;
-}
-
-.circle-two:active {
-  background-color: rgb(53 51 51);
-}
