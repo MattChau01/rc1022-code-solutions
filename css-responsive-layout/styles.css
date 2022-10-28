@@ -41,9 +41,7 @@ body {
   .col-lg-third {
     width: calc(100%/3);
   }
-}
 
-@media screen and (min-width: 768px) {
   .col-lg-fourth {
     width: calc(100%/4);
   }
