@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.column {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.default {
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  font-size: 35px;
+}
+
+.underline {
+  text-underline-position: under;
+  padding-bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+}
+
+.correct {
+  color: #18cd1b;
+}
+
+.incorrect {
+  color: red;
+}
