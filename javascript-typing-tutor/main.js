@@ -1,6 +1,6 @@
-// function typer(event) {
-//   console.log(event);
-//   console.log(event.target);
-// }
+function typer(event) {
 
-// var $spanLetter = document.querySelectorAll('.default');
+}
+
+var $typer = document.getElementById('typer');
+$typer.addEventListener('keydown', typer);
