@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ES6 Destructuring</title>
+  </head>
+  <body>
+    <!-- html goes here -->
+    <script>
+      // javascript goes here
+      const book1 =
+      {
+        title: 'Goodnight Punpun',
+        author: 'Inio Asano',
+        libraryID: 3353
+      };
+
+      // also works:
+      // const { title, author, libraryID } = book1;
+      const { title: bookTitle1 } = book1;
+      const { author: name1 } = book1;
+      const { libraryID: number1 } = book1;
+
+      console.log(`The title of the book is ${bookTitle1}, the author is ${name1}, and the library id is ${number1}.`);
+
+      const book2 =
+      {
+        title: 'Les Flerus du mal',
+        author: 'Charles Bauldelaire',
+        libraryID: 2345
+      };
+
+      const { title: bookTitle2 } = book2;
+      const { author: name2 } = book2;
+      const { libraryID: number2 } = book2;
+
+      console.log(`The title of the book is ${bookTitle2}, the author is ${name2}, and the library id is ${number2}.`);
+
+      const library = [
+        {
+          title: 'The Road Ahead',
+          author: 'Bill Gates',
+          libraryID: 1254
+        },
+        {
+          title: 'Walter Isaacson',
+          author: 'Steve Jobs',
+          libraryID: 4264
+        },
+        {
+          title: 'Mockingjay: The Final Book of The Hunger Games',
+          author: 'Suzanne Collins',
+          libraryID: 3245
+        },
+        {
+          title: "Dead Dead Demon's De De De De Destruction",
+          author: 'Inio Asano',
+          libraryID: 1233
+        }
+      ];
+
+      const book3 = library[0];
+      const book4 = library[1];
+      const book5 = library[2];
+
+      console.log('book3: ', book3);
+      console.log('book4: ', book4);
+      console.log('book5: ', book5);
+
+      // const book6 = library[3];
+
+      const [, , , book6] = library;
+      console.log('book6: ', book6);
+    </script>
+  </body>
+</html>
