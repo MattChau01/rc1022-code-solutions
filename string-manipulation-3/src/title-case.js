@@ -1,30 +1,29 @@
 /* exported titleCase */
 
 function titleCase(title) {
+  var conjunctions = ['and', 'or', 'nor', 'but', 'for', 'in', 'of', 'the'];
+  var lowerCase = title.toLowerCase();
+  lowerCase = lowerCase.replace('javascript', 'JavaScript');
+  lowerCase = lowerCase.replace('api', 'API');
+  var breakDown = lowerCase.split(' ');
 
-  var breakDown = title.split(' ');
-  // console.log(breakDown);
-  // console.log(breakDown[0].toLowerCase());
+  breakDown[0] = breakDown[0].charAt(0).toUpperCase() + breakDown[0].slice(1);
 
   for (var i = 0; i < breakDown.length; i++) {
-    var lowerCase = breakDown[i].toLowerCase();
-    // console.log(lowerCase);
-    if (lowerCase.length > 3) {
-      var firstLetter = lowerCase.charAt(0).toUpperCase();
-      var rest = lowerCase.slice(1);
-      var fullWord = firstLetter + rest;
-      // console.log(fullWord);
-      // console.log(breakDown[0]);
-      // console.log(lowerCase);
-      return fullWord;
-    } else if (breakDown[0].length <= 3) {
-      var short = breakDown[0];
-      var firstLet3 = short.charAt(0).toUpperCase();
-      var restShort = short.slice(1).toLowerCase();
-      var fullShortWord = firstLet3 + restShort;
-      // console.log(fullShortWord);
-      return fullShortWord;
+    if (!(conjunctions.includes(breakDown[i]))) {
+      var firstLetter = breakDown[i].charAt(0).toUpperCase();
+      var rest = breakDown[i].slice(1);
+      breakDown[i] = firstLetter + rest;
     }
+    // colon
+
+    for (var k = 0; k < breakDown[i].length; k++) {
+      if (breakDown[i][k - 1] === '-') {
+        breakDown[i] = breakDown[i].slice(0, k) + breakDown[i][k].toUpperCase() + breakDown[i].slice(k + 1);
+      }
+    }
+
   }
+  // console.log(breakDown);
 
 }
