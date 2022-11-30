@@ -19,4 +19,6 @@ if (z === 'plus') {
 } else if (z === 'over') {
   z = divide;
   console.log('result: ', divide(x, y));
+} else {
+  console.log('Invalid operation');
 }
