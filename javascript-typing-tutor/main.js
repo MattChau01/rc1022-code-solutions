@@ -1,17 +1,20 @@
 
-var $typer = document.getElementById('typer');
-$typer.addEventListener('keydown', typer);
+document.addEventListener('keydown', typer);
 
-// var letter = document.querySelectorAll('.default');
-// console.log(letter);
+var letter = document.querySelectorAll('span');
 
-function typer(key) {
-  // console.log(key.value);
-  // for (var i = 0; i < letter.length; i++) {
-  //   if (key.value === letter[i]) {
-  //     console.log('test');
-  //   }
-  // }
+var counter = 0;
 
-  // console.log(letter[0]);
+function typer(event) {
+  if (counter < letter.length) {
+    if (event.key === letter[counter].textContent) {
+      letter[counter].className = 'default correct';
+      if (counter < letter.length - 1) {
+        counter++;
+        letter[counter].className = 'default underline';
+      }
+    } else {
+      letter[counter].className = 'default underline incorrect';
+    }
+  }
 }

@@ -26,8 +26,14 @@
 
 .correct {
   color: #18cd1b;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  font-size: 35px;
 }
 
 .incorrect {
   color: red;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  font-size: 35px;
 }
