@@ -26,19 +26,20 @@ app.get('/api/notes', (req, res) => {
 
 app.get('/api/notes/:id', (req, res) => {
   const id = req.params.id;
+  const num = Number(id);
 
-  if (notes[id]) {
+  if (notes[num]) {
     res.status(200).json(notes[id]);
-  } else if (!data.notes[id]) {
-    const error = {
-      error: `cannot find note with id ${id}`
-    };
-    res.status(404).send(error);
-  } else if (data.notes[id] !== Number) {
+  } else if ((!Number.isInteger(num)) || (num < 0)) {
     const error = {
       error: 'id must be a postitive integer'
     };
     res.status(400).send(error);
+  } else if (!data.notes[num]) {
+    const error = {
+      error: `cannot find note with id ${id}`
+    };
+    res.status(404).send(error);
   }
 });
 
@@ -98,7 +99,7 @@ app.delete('/api/notes/:id', (req, res) => {
         console.error(err);
         res.status(500).json({ error: 'An unexpected error occurred.' });
       } else {
-        res.status(204);
+        res.sendStatus(204);
         delete notes[num];
         res.end();
       }
@@ -116,7 +117,7 @@ app.put('/api/notes/:id', (req, res) => {
   if (((Object.keys(reqBody).length === 0) || (num < 0)) || (!Number.isInteger(num))) {
     const error = { error: 'id bust be a positive integer' };
     res.status(400).json(error);
-    res.end();
+    // res.end();
   } else if ((Number.isInteger(num)) && (num > 0) && (Object.keys(reqBody).length !== 0) && (!notes[num])) {
     const error = { error: `cannot find note with id ${num}` };
     res.status(400).json(error);
