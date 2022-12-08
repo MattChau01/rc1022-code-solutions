@@ -1,0 +1,6 @@
+select "a"."firstName" as "firstName",
+       "a"."lastName" as "lastName"
+  from "actors" as "a"
+join "castMembers" as "cM" using ("actorId")
+join "films" as "f" using ("filmId")
+where "f"."title" = 'Jersey Sassy';
