@@ -1,0 +1,18 @@
+    genre    | totals 
+-------------+--------
+ Classics    |      2
+ Sci-Fi      |      2
+ Games       |      2
+ Foreign     |      1
+ Drama       |      1
+ New         |      2
+ Action      |      1
+ Comedy      |      1
+ Animation   |      1
+ Sports      |      3
+ Documentary |      3
+ Music       |      1
+ Family      |      1
+ Horror      |      2
+(14 rows)
+
