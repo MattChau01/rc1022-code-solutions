@@ -59,22 +59,40 @@ app.post('/api/grades', (req, res) => {
     res.status(400).json({ error: 'Score is invalid' });
   } else if ((name.length <= 0) || (course.length <= 0) || (score <= 0)) {
     res.status(400).json({ error: 'All content is required' });
+  } else {
+    const sql = `
+      insert into "grades" ("name", "course", "score")
+      values ($1, $2, $3)
+    `;
+
+    // const list = `
+    //     select *
+    //     from "grades"
+    // `;
+
+    const params = [name, course, score];
+    db.query(sql, params)
+      .then(result => {
+
+        const grade = result.rows[0];
+        res.status(201).json(grade);
+
+        // RETURN FULL LIST(?)
+        // const list = result.rows;
+        // res.json(list);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+      });
   }
+});
 
-  const sql = `
-    insert into "grades" ("name", "course", "score")
-    values ($1, $2, $3)
-    returning *
-  `;
+// UPDATES A GRADE IN THE GRADES TABLE
 
-  const params = [name, course, score];
-  db.query(sql, params)
-    .then(result => {
-      const grade = result.rows[0];
-      res.status(201).json(grade);
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({ error: 'An unexpected error occurred.' });
-    });
+app.put('/api/grades/:id', (req, res) => {
+  // const id = Number(req.params.id);
+  // console.log(id);
+  // console.log(typeof id);
+
 });
