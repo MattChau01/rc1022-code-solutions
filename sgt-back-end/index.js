@@ -23,8 +23,6 @@ app.listen(3000, () => {
 // RETURNS ALL ROWS FROM "GRADES" TABLE
 
 app.get('/api/grades', (req, res) => {
-  const array = [];
-
   const sql = `
     select *
     from "grades"
@@ -37,9 +35,7 @@ app.get('/api/grades', (req, res) => {
     })
     .catch(err => {
       console.error(err);
-      res.status(500).json({
-        array
-      });
+      res.status(500).json({ error: 'An unexpected error as occurred.' });
     });
 });
 
@@ -60,12 +56,8 @@ app.post('/api/grades', (req, res) => {
     const sql = `
       insert into "grades" ("name", "course", "score")
       values ($1, $2, $3)
+      returning *
     `;
-
-    // const list = `
-    //     select *
-    //     from "grades"
-    // `;
 
     const params = [name, course, score];
     db.query(sql, params)
@@ -73,10 +65,6 @@ app.post('/api/grades', (req, res) => {
 
         const grade = result.rows[0];
         res.status(201).json(grade);
-
-        // RETURN FULL LIST(?)
-        // const list = result.rows;
-        // res.json(list);
       })
       .catch(err => {
         console.error(err);
@@ -89,8 +77,6 @@ app.post('/api/grades', (req, res) => {
 
 app.put('/api/grades/:gradeId', (req, res) => {
   const id = Number(req.params.gradeId);
-  // console.log(id);
-  // console.log(typeof id);
 
   const reqBody = req.body;
 
@@ -134,10 +120,8 @@ app.put('/api/grades/:gradeId', (req, res) => {
 
 app.delete('/api/grades/:gradeId', (req, res) => {
   const id = Number(req.params.gradeId);
-  // console.log('id: ', id);
-  // console.log('typeof id: ', typeof id);
 
-  if (!Number.isInteger(id) || id < 0) {
+  if (!Number.isInteger(id) || id <= 0) {
     res.status(400).json({ error: 'Id must be a valid and positive integer.' });
   } else {
 
