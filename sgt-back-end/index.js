@@ -52,9 +52,6 @@ app.post('/api/grades', (req, res) => {
   const course = req.body.course;
   const score = req.body.score;
 
-  // console.log('score: ', score);
-  // console.log('score type: ', typeof score);
-
   if (!Number.isInteger(score) || score < 0 || score > 100) {
     res.status(400).json({ error: 'Score is invalid' });
   } else if ((name.length <= 0) || (course.length <= 0) || (score <= 0)) {
@@ -131,4 +128,84 @@ app.put('/api/grades/:gradeId', (req, res) => {
         res.status(500).json({ error: 'An unexptected error occurred.' });
       });
   }
+});
+
+// DELETES A GRADE FROM THE GRADES TABLE
+
+app.delete('/api/grades/:gradeId', (req, res) => {
+  const id = Number(req.params.gradeId);
+  // console.log('id: ', id);
+  // console.log('typeof id: ', typeof id);
+
+  if (!Number.isInteger(id) || id < 0) {
+    res.status(400).json({ error: 'Id must be a valid and positive integer.' });
+  } else {
+
+    const sql = `
+      delete
+        from "grades"
+      where "gradeId" = $1
+      returning *
+    `;
+
+    const params = [id];
+
+    db.query(sql, params)
+      .then(result => {
+        const grade = result.rows[0];
+
+        if (!grade) {
+          res.status(404).json({ error: 'This id does not exist in the database.' });
+        } else {
+          res.status(204).json(grade);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({ error: 'An unexpected error has occurred.' });
+      });
+  }
+
+});
+
+//
+// EXAMPLE CODE: GETS GRADE BY ID
+//
+
+app.get('/api/grades/:gradeId', (req, res, next) => {
+  const gradeId = Number(req.params.gradeId);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({
+      error: '"gradeId" must be a positive integer'
+    });
+    return;
+  }
+  const sql = `
+    select "gradeId",
+           "name",
+           "course",
+           "score",
+           "createdAt"
+      from "grades"
+     where "gradeId" = $1
+  `;
+  const params = [gradeId];
+
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({
+          error: `Cannot find grade with gradeId: ${gradeId}`
+        });
+      } else {
+        res.json(grade);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred.'
+      });
+    });
 });
