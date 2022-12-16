@@ -1,0 +1,13 @@
+         line1         
+-----------------------
+ 33 Gorontalo Way
+ 435 0 Way
+ 624 Oshawa Boulevard
+ 954 Kimchon Place
+ 1027 Banjul Place
+ 126 Acua Parkway
+ 1704 Tambaram Manor
+ 1013 Tabuk Boulevard
+ 1197 Sokoto Boulevard
+(9 rows)
+

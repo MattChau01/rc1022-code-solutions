@@ -1,0 +1,5 @@
+ averageReplacement 
+--------------------
+              19.98
+(1 row)
+
