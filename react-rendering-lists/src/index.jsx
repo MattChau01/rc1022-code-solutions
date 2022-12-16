@@ -9,19 +9,26 @@ const pokedex = [
   { number: '039', name: 'Jigglypuff' }
 ];
 
-function RenderArray(props) {
-  const array = (
-    <ul>
-      {props.pokedex.map(pokemon =>
-        <li key={pokemon.number}>
-          {pokemon.name}
-        </li>
-      )}
-    </ul>
-  );
-  return array;
-}
+const RenderArray = pokedex.map(pokemon =>
+  <li key={pokemon.number}>
+    {[pokemon.name]}
+  </li>
+);
+
+// function RenderArray(props) {
+//   const array = (
+//     <ul>
+//       {props.pokedex.map(pokemon =>
+//         <li key={pokemon.number}>
+//           {pokemon.name}
+//         </li>
+//       )}
+//     </ul>
+//   );
+//   return array;
+// }
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
-root.render(< RenderArray pokedex={pokedex}/>);
+// root.render(< RenderArray pokedex={pokedex} />);
+root.render(<ul>{RenderArray} </ul>);
