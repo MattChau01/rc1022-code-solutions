@@ -1,0 +1,17 @@
+* {
+  font-family: sans-serif;
+}
+
+p {
+  color: red;
+}
+
+.wrong {
+  color: red;
+  margin-left: 15px;
+}
+
+.correct {
+  color: greenyellow;
+  margin-left: 15px;
+}
