@@ -1,0 +1,42 @@
+// User can sign up.
+
+
+    There is a condition in the `renderPage` function of app.jsx where it will render the <Auth /> component if the path
+    is strictly equal to the # 'sign-up'. If this condition is true, it will render the sign up page.
+
+    On Auth.jsx, there is a component AuthForm being imported, which is where the user's USERNAME and PASSWORD is taken.
+    After a user inputs their sign in credentials, these inputs are passed into the server functions in index.js.
+    Since this is a new user, this data is being posted to the database, using `app.post/SIGN-UP`.
+
+    As long as both username and password fields are filled out, the password input will be passed into argon2 to be hashed.
+    If this process is successful, the user's credentials is inserted into the database and assigned a userId.
+
+
+// User can sign in.
+
+
+    The page will render to the sign in page if the user clicks on 'Sign in instead', since this path is equal to the # 'sign-in'.
+
+    The sign in path also renders the <Auth /> component since the conditional compares whether the path is equal to 'sign-in' or 'sign-up'.
+    If the user's username does exist, argon2 will verify the password by comparing the inputted password and the hashed password. If this matches,
+    a token will be given to the user to sign in.
+
+    A component called Redirect is being imported into Auth.jsx. There's a conditional that tests if the user exists on sign in, it will return the
+    <Redirect to="" /> component. Inside this component, it will take the value of props.to and compare whether the value is a blank string ('').
+    If it is, it will assign the url.hash to '#', which is the href path for the home page.
+
+
+// User can stay signed in (even if they refresh the page).
+
+
+    Is a user is able to sign in with credentials, they are given a token that grants them access to the page. Until they are signed out,
+    they can remain signed in. Once signed in, the window object will listen for any hashchanges. If the page is refreshed, the window.location.hash will find
+    the hash of the current location. Inside the componentDidMount, it will set the state of route to that location hash.
+
+
+// User can sign out.
+
+
+    On the navbar, there is a button labeled 'Sign out'. When clicked on, it will initiate the `handleSignOut` function on app.jsx.
+    This function will remove an item from local storage named 'react-context-jwt', which removes the token value. The function also sets the state of user to null.
+    On navbar.jsx, there is a condition that will redirect a user to the sign up/sign in page when user is equal to null.
