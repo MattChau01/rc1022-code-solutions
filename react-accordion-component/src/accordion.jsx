@@ -7,23 +7,6 @@ class AccordionComp extends React.Component {
       isClicked: false,
       currentView: null
     };
-    this.props.topics = [
-      {
-        num: '0',
-        name: 'Hypertext Markup Language',
-        description: 'HTML (HyperText Markup Language) is the most basic building block of the Web.'
-      },
-      {
-        num: '1',
-        name: 'Cascading Style Sheets',
-        description: 'Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML.'
-      },
-      {
-        num: '2',
-        name: 'JavaScript',
-        description: 'JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.'
-      }
-    ];
     this.handleClick = this.handleClick.bind(this);
   }
 
