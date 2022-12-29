@@ -1,0 +1,27 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.list {
+  list-style: none;
+}
+
+.modal-box {
+  border-style: solid;
+  width: 50%;
+  line-height: 50px;
+  margin-top: 1px;
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+.modal-content {
+  border-style: solid;
+  width: 50%;
+  line-height: 25px;
+  margin-top: 1px;
+}
+
+.hidden {
+  visibility: none;
+}
