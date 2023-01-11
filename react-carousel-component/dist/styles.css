@@ -1,0 +1,35 @@
+img {
+  margin-top: 5%;
+}
+
+.left-arrow {
+  font-size: 50px;
+  text-align: start;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+}
+
+.right-arrow {
+  font-size: 50px;
+  text-align: end;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+}
+
+.circle-size {
+  font-size: 20px;
+  margin: 50px 10px;
+  cursor: pointer;
+}
+
+.column-third-circles {
+  width: calc(100%/3);
+  margin: 50px;
+}
+
+.hidden {
+  display: none;
+}
