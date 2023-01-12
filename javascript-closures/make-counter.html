@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Closures</title>
+</head>
+
+<body>
+  <script>
+    const makeCounter = function () {
+      let privateCounter = 0;
+      function changeBy(val) {
+        privateCounter += val;
+      }
+      return {
+        increment() {
+          changeBy(1);
+        },
+
+        decrement() {
+          changeBy(-1);
+        },
+
+        value() {
+          return privateCounter;
+        }
+      };
+    };
+
+    const counter1 = makeCounter();
+    const counter2 = makeCounter();
+
+    console.log('counter1 beginning: ', counter1.value()); // 0.
+    console.log('counter2 beginning: ', counter2.value()); // 0.
+
+    counter1.increment();
+    counter1.increment();
+    counter2.increment();
+    counter2.increment();
+    counter2.increment();
+    console.log('new 1: ', counter1.value());
+    console.log('new 2: ', counter2.value());
+  </script>
+</body>
+
+</html>
